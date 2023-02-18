@@ -3,7 +3,6 @@ Thumbs.db
 build/
 target/
 out/
-generated
 .idea
 *.iml
 *.ipr
