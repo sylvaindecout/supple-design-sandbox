@@ -1,0 +1,16 @@
+Thumbs.db
+.DS_Store
+build/
+target/
+out/
+generated
+.idea
+*.iml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+.gradle
+hs_err_pid*
+.batect
