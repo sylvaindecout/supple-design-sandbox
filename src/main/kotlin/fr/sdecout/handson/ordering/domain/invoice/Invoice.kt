@@ -1,0 +1,13 @@
+package fr.sdecout.handson.ordering.domain.invoice
+
+import fr.sdecout.handson.ordering.domain.Money
+
+data class Invoice(val lines: List<InvoiceLine>) {
+
+    val totalPrice: Money by lazy { lines.fold(Money(0.0)) { total, line -> total + line.totalPrice } }
+
+    companion object {
+        fun from(vararg lines: InvoiceLine) = Invoice(lines.toList())
+    }
+
+}
