@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="317px" preserveAspectRatio="none" style="width:503px;height:317px;background:#FFFFFF;" version="1.1" viewBox="0 0 503 317" width="503px" zoomAndPan="magnify"><defs/><g><rect fill="#ADD8E6" height="200.8633" style="stroke:#0000FF;stroke-width:1.0;" width="10" x="147" y="84.2871"/><rect fill="#ADD8E6" height="14" style="stroke:#0000FF;stroke-width:1.0;" width="10" x="241" y="113.5977"/><rect fill="#ADD8E6" height="14" style="stroke:#0000FF;stroke-width:1.0;" width="10" x="322.5" y="181.2188"/><rect fill="#ADD8E6" height="45.3105" style="stroke:#0000FF;stroke-width:1.0;" width="10" x="425" y="255.8398"/><rect fill="none" height="60.6211" style="stroke:#000000;stroke-width:1.5;" width="279" x="94" y="142.5977"/><rect fill="none" height="75.9316" style="stroke:#000000;stroke-width:1.5;" width="487" x="10" y="217.2188"/><line style="stroke:#0000FF;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="57" x2="57" y1="52.9766" y2="310.1504"/><line style="stroke:#0000FF;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="152" x2="152" y1="52.9766" y2="310.1504"/><line style="stroke:#0000FF;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="246" x2="246" y1="52.9766" y2="310.1504"/><line style="stroke:#0000FF;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="327" x2="327" y1="52.9766" y2="310.1504"/><line style="stroke:#0000FF;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="430" x2="430" y1="52.9766" y2="310.1504"/><rect fill="#D3D3D3" height="30.4883" rx="2.5" ry="2.5" style="stroke:#00BFFF;stroke-width:0.5;" width="54" x="30" y="21.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="37" y="42.0234">Client</text><rect fill="#90EE90" height="30.4883" rx="2.5" ry="2.5" style="stroke:#00BFFF;stroke-width:0.5;" width="76" x="114" y="21.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="121" y="42.0234">Ordering</text><rect fill="#ADD8E6" height="30.4883" rx="2.5" ry="2.5" style="stroke:#00BFFF;stroke-width:0.5;" width="52" x="220" y="21.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="227" y="42.0234">Menu</text><rect fill="#ADD8E6" height="30.4883" rx="2.5" ry="2.5" style="stroke:#00BFFF;stroke-width:0.5;" width="51" x="302" y="21.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="309" y="42.0234">Stock</text><rect fill="#ADD8E6" height="46.9766" rx="2.5" ry="2.5" style="stroke:#00BFFF;stroke-width:0.5;" width="94" x="383" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="411.5" y="25.5352">Drink</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="390" y="42.0234">Preparation</text><rect fill="#ADD8E6" height="200.8633" style="stroke:#0000FF;stroke-width:1.0;" width="10" x="147" y="84.2871"/><rect fill="#ADD8E6" height="14" style="stroke:#0000FF;stroke-width:1.0;" width="10" x="241" y="113.5977"/><rect fill="#ADD8E6" height="14" style="stroke:#0000FF;stroke-width:1.0;" width="10" x="322.5" y="181.2188"/><rect fill="#ADD8E6" height="45.3105" style="stroke:#0000FF;stroke-width:1.0;" width="10" x="425" y="255.8398"/><polygon fill="#00BFFF" points="135,80.2871,145,84.2871,135,88.2871,139,84.2871" style="stroke:#00BFFF;stroke-width:1.0;"/><line style="stroke:#00BFFF;stroke-width:1.0;" x1="57" x2="141" y1="84.2871" y2="84.2871"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="64" y="79.5449">Order</text><polygon fill="#00BFFF" points="229,109.5977,239,113.5977,229,117.5977,233,113.5977" style="stroke:#00BFFF;stroke-width:1.0;"/><line style="stroke:#00BFFF;stroke-width:1.0;" x1="157" x2="235" y1="113.5977" y2="113.5977"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="63" x="164" y="108.8555">Get recipe</text><polygon fill="#00BFFF" points="168,123.5977,158,127.5977,168,131.5977,164,127.5977" style="stroke:#00BFFF;stroke-width:1.0;"/><line style="stroke:#00BFFF;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="162" x2="245" y1="127.5977" y2="127.5977"/><path d="M94,142.5977 L168,142.5977 L168,149.9082 L158,159.9082 L94,159.9082 L94,142.5977 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="60.6211" style="stroke:#000000;stroke-width:1.5;" width="279" x="94" y="142.5977"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="29" x="109" y="156.166">loop</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="168" x="183" y="155.2324">[for each ingredient in recipe]</text><polygon fill="#00BFFF" points="310.5,177.2188,320.5,181.2188,310.5,185.2188,314.5,181.2188" style="stroke:#00BFFF;stroke-width:1.0;"/><line style="stroke:#00BFFF;stroke-width:1.0;" x1="157" x2="316.5" y1="181.2188" y2="181.2188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="136" x="164" y="176.4766">Get available quantity</text><polygon fill="#00BFFF" points="168,191.2188,158,195.2188,168,199.2188,164,195.2188" style="stroke:#00BFFF;stroke-width:1.0;"/><line style="stroke:#00BFFF;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="162" x2="326.5" y1="195.2188" y2="195.2188"/><path d="M10,217.2188 L72,217.2188 L72,224.5293 L62,234.5293 L10,234.5293 L10,217.2188 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="75.9316" style="stroke:#000000;stroke-width:1.5;" width="487" x="10" y="217.2188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="17" x="25" y="230.7871">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="189" x="87" y="229.8535">[required quantities are available]</text><polygon fill="#00BFFF" points="413,251.8398,423,255.8398,413,259.8398,417,255.8398" style="stroke:#00BFFF;stroke-width:1.0;"/><line style="stroke:#00BFFF;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="157" x2="419" y1="255.8398" y2="255.8398"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="77" x="164" y="251.0977">Queue order</text><polygon fill="#00BFFF" points="68,281.1504,58,285.1504,68,289.1504,64,285.1504" style="stroke:#00BFFF;stroke-width:1.0;"/><line style="stroke:#00BFFF;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="62" x2="151" y1="285.1504" y2="285.1504"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="45" x="74" y="280.4082">Invoice</text><!--MD5=[b07067d0da5d25144f013bebdcd6d93a]
+@startuml
+
+hide footbox
+
+skinparam sequence {
+    ArrowColor DeepSkyBlue
+    LifeLineBackgroundColor lightBlue
+    LifeLineBorderColor blue
+    ParticipantBackgroundColor lightBlue
+    ParticipantBorderColor DeepSkyBlue
+    ParticipantPadding 10
+}
+
+participant Client #lightgrey
+participant Ordering #lightgreen
+participant Menu
+participant Stock
+participant Preparation as "Drink\nPreparation"
+
+Client -> Ordering: Order
+activate Ordering
+
+Ordering -> Menu: Get recipe
+activate Menu
+
+Ordering <- - Menu
+deactivate Menu
+
+loop for each ingredient in recipe
+
+    Ordering -> Stock: Get available quantity
+    activate Stock
+
+    Ordering <- - Stock
+    deactivate Stock
+
+end loop
+
+alt required quantities are available
+
+    Ordering - -> Preparation: Queue order
+    activate Preparation
+
+    Client <- - Ordering: Invoice
+    deactivate Ordering
+
+end
+
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: FR
+--></g></svg>

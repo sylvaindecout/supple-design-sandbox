@@ -1,0 +1,49 @@
+@startuml
+
+hide footbox
+
+skinparam sequence {
+    ArrowColor DeepSkyBlue
+    LifeLineBackgroundColor lightBlue
+    LifeLineBorderColor blue
+    ParticipantBackgroundColor lightBlue
+    ParticipantBorderColor DeepSkyBlue
+    ParticipantPadding 10
+}
+
+participant Client #lightgrey
+participant Ordering #lightgreen
+participant Menu
+participant Stock
+participant Preparation as "Drink\nPreparation"
+
+Client -> Ordering: Order
+activate Ordering
+
+Ordering -> Menu: Get recipe
+activate Menu
+
+Ordering <-- Menu
+deactivate Menu
+
+loop for each ingredient in recipe
+
+    Ordering -> Stock: Get available quantity
+    activate Stock
+
+    Ordering <-- Stock
+    deactivate Stock
+
+end loop
+
+alt required quantities are available
+
+    Ordering --> Preparation: Queue order
+    activate Preparation
+
+    Client <-- Ordering: Invoice
+    deactivate Ordering
+
+end
+
+@enduml
