@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 val jvmVersion = JvmTarget.JVM_17
 val arrowVersion = "1.2.4"
 val jodaMoneyVersion = "1.0.5"
-val kotestVersion = "5.9.0"
+val kotestVersion = "5.9.1"
 val kotestArrowVersion = "1.4.0"
 val documentationAnnotationsVersion = "0.1.7"
 
