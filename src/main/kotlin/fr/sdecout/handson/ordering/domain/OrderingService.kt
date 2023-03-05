@@ -24,6 +24,7 @@ class OrderingService(
     private val invoices: Invoices
 ) : CustomerOrderHandler {
 
+    // TODO: Declarative design - Intention-revealing interfaces, side-effect free functions and assertions are a first step into declarative territory, but we can go further: how can we make it so that someone changing the design does not have to care about the 'how', only about the 'what'.
     override fun process(order: Order) = menu.find(order.drink)
         .flatMap { failOnUnavailableIngredient(it, order.quantity) }
         .onRight { startPreparation(it, order) }
