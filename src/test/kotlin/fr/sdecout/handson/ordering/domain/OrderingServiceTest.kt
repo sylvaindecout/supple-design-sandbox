@@ -36,7 +36,7 @@ class OrderingServiceTest : ShouldSpec({
         val customer = Customer("Vincent")
         val orderedQuantity = 1.pieces()
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(LATTE.drink, orderedQuantity, customer))
+        val invoice = service.process(Order(LATTE.drink, orderedQuantity, customer))
 
         val expectedInvoice = Invoice.from(InvoiceLine(LATTE.drink, orderedQuantity, LATTE.unitPrice))
         invoice shouldBeRight expectedInvoice
@@ -56,7 +56,7 @@ class OrderingServiceTest : ShouldSpec({
         val customer = Customer("Vincent")
         val orderedQuantity = 3.pieces()
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(LATTE.drink, orderedQuantity, customer))
+        val invoice = service.process(Order(LATTE.drink, orderedQuantity, customer))
 
         val expectedInvoice = Invoice.from(InvoiceLine(LATTE.drink, orderedQuantity, LATTE.unitPrice))
         invoice shouldBeRight expectedInvoice
@@ -76,7 +76,7 @@ class OrderingServiceTest : ShouldSpec({
             invoices = { invoices.add(it) }
         )
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(LATTE.drink, 1.pieces(), Customer("Vincent")))
+        val invoice = service.process(Order(LATTE.drink, 1.pieces(), Customer("Vincent")))
 
         invoice shouldBeLeft OrderError.UnavailableIngredient(LATTE.recipe.asMap().keys.first())
         invoices.shouldBeEmpty()
@@ -91,7 +91,7 @@ class OrderingServiceTest : ShouldSpec({
             invoices = { invoices.add(it) }
         )
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(LATTE.drink, 1.pieces(), Customer("Vincent")))
+        val invoice = service.process(Order(LATTE.drink, 1.pieces(), Customer("Vincent")))
 
         invoice shouldBeLeft OrderError.UnavailableIngredient(LATTE.recipe.asMap().keys.first())
         invoices.shouldBeEmpty()
@@ -107,7 +107,7 @@ class OrderingServiceTest : ShouldSpec({
         )
         val drink = DrinkName("UNKNOWN")
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(drink, 1.pieces(), Customer("Vincent")))
+        val invoice = service.process(Order(drink, 1.pieces(), Customer("Vincent")))
 
         invoice shouldBeLeft OrderError.UnknownDrink(drink)
         invoices.shouldBeEmpty()
