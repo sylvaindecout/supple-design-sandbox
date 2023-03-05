@@ -14,6 +14,7 @@ data class InvoiceLine(
 
     val totalPrice: Money by lazy { unitPrice.multipliedBy(quantity.amount.toLong()) }
 
+    // TODO: Closure of operations - Why would you need to know about Invoice in InvoiceLine? What if we want to add some consistency checks between the lines?
     fun addTo(invoice: Invoice): Invoice = Invoice(invoice.lines + this)
 
 }

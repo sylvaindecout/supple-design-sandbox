@@ -6,6 +6,7 @@ import fr.sdecout.handson.ordering.domain.TestMenuItem.Companion.testMenu
 import fr.sdecout.handson.ordering.domain.TestMenuItem.LATTE
 import fr.sdecout.handson.ordering.domain.invoice.Invoice
 import fr.sdecout.handson.ordering.domain.invoice.InvoiceLine
+import fr.sdecout.handson.ordering.domain.preparation.Drink
 import fr.sdecout.handson.ordering.domain.recipe.Quantity.Companion.pieces
 import fr.sdecout.handson.ordering.domain.stock.Stock
 import org.junit.jupiter.api.Test
@@ -17,7 +18,7 @@ import strikt.assertions.isEmpty
 
 class OrderingServiceTest {
 
-    private val drinksSentToPreparation = mutableListOf<Order>()
+    private val drinksSentToPreparation = mutableListOf<Drink>()
 
     @Test
     fun should_process_order() {
@@ -33,7 +34,7 @@ class OrderingServiceTest {
 
         expectThat(invoice).isRight(Invoice.from(InvoiceLine(LATTE.drink, orderedQuantity, LATTE.unitPrice)))
         expectThat(drinksSentToPreparation).containsExactly(
-            Order(LATTE.drink, orderedQuantity, customer, LATTE.recipe)
+            Drink(LATTE.drink, LATTE.recipe, customer)
         )
     }
 
@@ -51,9 +52,9 @@ class OrderingServiceTest {
 
         expectThat(invoice).isRight(Invoice.from(InvoiceLine(LATTE.drink, orderedQuantity, LATTE.unitPrice)))
         expectThat(drinksSentToPreparation).containsExactly(
-            Order(LATTE.drink, orderedQuantity, customer, LATTE.recipe),
-            Order(LATTE.drink, orderedQuantity, customer, LATTE.recipe),
-            Order(LATTE.drink, orderedQuantity, customer, LATTE.recipe)
+            Drink(LATTE.drink, LATTE.recipe, customer),
+            Drink(LATTE.drink, LATTE.recipe, customer),
+            Drink(LATTE.drink, LATTE.recipe, customer)
         )
     }
 

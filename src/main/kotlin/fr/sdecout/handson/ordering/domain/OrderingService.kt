@@ -9,6 +9,7 @@ import fr.sdecout.handson.ordering.domain.invoice.Invoice
 import fr.sdecout.handson.ordering.domain.invoice.InvoiceLine
 import fr.sdecout.handson.ordering.domain.menu.Menu
 import fr.sdecout.handson.ordering.domain.menu.MenuItem
+import fr.sdecout.handson.ordering.domain.preparation.Drink
 import fr.sdecout.handson.ordering.domain.preparation.DrinkPreparation
 import fr.sdecout.handson.ordering.domain.recipe.Ingredient
 import fr.sdecout.handson.ordering.domain.recipe.Quantity
@@ -23,8 +24,7 @@ class OrderingService(
 
     override fun process(order: Order) = menu.find(order.drink)
         .flatMap { failOnUnavailableIngredient(it, order.quantity) }
-        // TODO: Assertions - How could I be sure that Order has recipe set at this stage? (the fact that the method is called withRecipe makes it explicit, so this is a poor example)
-        .onRight { startPreparation(order.withRecipe(it.recipe)) }
+        .onRight { startPreparation(it, order) }
         .map { it.toInvoiceWith(order.quantity) }
 
     private fun failOnUnavailableIngredient(menuItem: MenuItem, orderedQuantity: Quantity.Scalar) = menuItem.recipe
@@ -37,9 +37,15 @@ class OrderingService(
     private fun Ingredient.isAvailable(requiredQuantity: Quantity) = stock.hasEnoughOf(this, requiredQuantity)
         .getOrElse { false }
 
-    private fun startPreparation(orderWithRecipe: Order) = repeat(orderWithRecipe.quantity.amount) {
-        preparation.queueForPreparation(orderWithRecipe)
-    }
+    private fun startPreparation(menuItem: MenuItem, order: Order) = menuItem
+        .asDrinkFor(order.customer)
+        .let { drink -> repeat(order.quantity.amount) { preparation.queueForPreparation(drink) } }
+
+    private fun MenuItem.asDrinkFor(customer: Customer) = Drink(
+        name = this.name,
+        recipe = this.recipe,
+        customer = customer
+    )
 
     private fun MenuItem.toInvoiceWith(quantity: Quantity.Scalar): Invoice {
         return Invoice.from(InvoiceLine(
