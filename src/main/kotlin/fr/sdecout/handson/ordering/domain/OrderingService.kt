@@ -21,13 +21,11 @@ class OrderingService(
     private val stock: Stock
 ) : CustomerOrderHandler {
 
-    // TODO: Intention-revealing interfaces - Calling other services is a means, not an end
-    override fun orchestrateCallsToOtherServicesFor(order: Order) = menu.find(order.drink)
-        .flatMap { checkByCallingStockService(it, order.quantity) }
-        .map { sendToPreparationService(order.withRecipe(it.recipe), it) }
+    override fun process(order: Order) = menu.find(order.drink)
+        .flatMap { failOnUnavailableIngredient(it, order.quantity) }
+        .map { startPreparationAndBuildInvoice(order.withRecipe(it.recipe), it) }
 
-    // TODO: Intention-revealing interfaces - Calling other services is a means, not an end
-    private fun checkByCallingStockService(menuItem: MenuItem, orderedQuantity: Quantity.Scalar) = menuItem.recipe
+    private fun failOnUnavailableIngredient(menuItem: MenuItem, orderedQuantity: Quantity.Scalar) = menuItem.recipe
         .asMap().toList()
         .map { (ingredient, requiredUnitQuantity) -> ingredient to requiredUnitQuantity * orderedQuantity }
         .firstOrNull { (ingredient, requiredQuantity) -> !ingredient.isAvailable(requiredQuantity) }
@@ -37,8 +35,8 @@ class OrderingService(
     private fun Ingredient.isAvailable(requiredQuantity: Quantity) = stock.hasEnoughOf(this, requiredQuantity)
         .getOrElse { false }
 
-    // TODO: Intention-revealing interfaces - Calling other services is a means, not an end.
-    private fun sendToPreparationService(orderWithRecipe: Order, menuItem: MenuItem): Invoice {
+    // TODO: Side-effect-free functions - Starting the preparation is a side effect, it should be segregated from invoice generation function.
+    private fun startPreparationAndBuildInvoice(orderWithRecipe: Order, menuItem: MenuItem): Invoice {
         repeat(orderWithRecipe.quantity.amount) {
             preparation.queueForPreparation(orderWithRecipe)
         }
