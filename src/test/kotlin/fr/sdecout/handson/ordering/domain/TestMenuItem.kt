@@ -8,13 +8,15 @@ import fr.sdecout.handson.ordering.domain.recipe.Ingredient
 import fr.sdecout.handson.ordering.domain.recipe.Quantity.Companion.centiliters
 import fr.sdecout.handson.ordering.domain.recipe.Quantity.Companion.grams
 import fr.sdecout.handson.ordering.domain.recipe.Recipe
+import org.joda.money.CurrencyUnit.EUR
+import org.joda.money.Money
 import kotlin.enums.enumEntries
 
 enum class TestMenuItem(val drink: DrinkName, val unitPrice: Money, val recipe: Recipe) {
 
     LATTE(
         DrinkName("Latte"),
-        Money(5.00),
+        Money.of(EUR, 5.00),
         Recipe.from(
             Ingredient("Coffee beans") to 7.grams(),
             Ingredient("Milk") to 5.centiliters()
