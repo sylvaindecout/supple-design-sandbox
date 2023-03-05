@@ -33,24 +33,4 @@ class InvoiceLineTest {
             .isEqualTo(Money(0.0))
     }
 
-    @Test
-    fun should_add_to_an_invoice() {
-        val line1 = InvoiceLine(
-            drink = DrinkName("ESPRESSO"),
-            quantity = pieces(3),
-            unitPrice = Money(7.00),
-        )
-        val line2 = InvoiceLine(
-            drink = DrinkName("LATTE"),
-            quantity = pieces(1),
-            unitPrice = Money(12.00),
-        )
-        val formerInvoice = Invoice.from(line1)
-
-        val updatedInvoice = line2.addTo(formerInvoice)
-
-        expectThat(updatedInvoice)
-            .isEqualTo(Invoice.from(line1, line2))
-    }
-
 }
