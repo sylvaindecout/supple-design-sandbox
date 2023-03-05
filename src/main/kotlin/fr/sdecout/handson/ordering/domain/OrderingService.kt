@@ -25,8 +25,10 @@ class OrderingService(
 
     override fun process(order: Order) = menu.find(order.drink)
         .flatMap { failOnUnavailableIngredient(it, order.quantity) }
+        // TODO: Assertions - How could I be sure that Order has recipe set at this stage? (the fact that the method is called withRecipe makes it explicit, so this is a poor example)
         .onRight { startPreparation(order.withRecipe(it.recipe)) }
-        .map { buildInvoice(order.withRecipe(it.recipe), it) }
+        .map { it.toInvoiceWith(order.quantity) }
+        .onRight { invoices.add(it) }
 
     private fun failOnUnavailableIngredient(menuItem: MenuItem, orderedQuantity: Quantity.Scalar) = menuItem.recipe
         .asMap().toList()
@@ -40,12 +42,6 @@ class OrderingService(
 
     private fun startPreparation(orderWithRecipe: Order) = repeat(orderWithRecipe.quantity.amount) {
         preparation.queueForPreparation(orderWithRecipe)
-    }
-
-    // TODO: Side-effect-free functions - Saving the invoice is a side effect, it should be segregated from invoice generation function.
-    private fun buildInvoice(orderWithRecipe: Order, menuItem: MenuItem): Invoice {
-        return menuItem.toInvoiceWith(orderWithRecipe.quantity)
-            .also { this.invoices.add(it) }
     }
 
     private fun MenuItem.toInvoiceWith(quantity: Quantity.Scalar): Invoice {
