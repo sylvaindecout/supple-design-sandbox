@@ -1,10 +1,11 @@
 package fr.sdecout.handson.ordering.domain.invoice
 
-import fr.sdecout.handson.ordering.domain.Money
+import org.joda.money.CurrencyUnit.EUR
+import org.joda.money.Money
 
 data class Invoice(val lines: List<InvoiceLine>) {
 
-    val totalPrice: Money by lazy { lines.fold(Money(0.0)) { total, line -> total + line.totalPrice } }
+    val totalPrice: Money by lazy { lines.fold(Money.zero(EUR)) { total, line -> total + line.totalPrice } }
 
     operator fun plus(line: InvoiceLine) = Invoice(lines + line)
 
