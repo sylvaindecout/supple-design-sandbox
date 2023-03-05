@@ -6,5 +6,6 @@ import fr.sdecout.handson.ordering.domain.Order
 
 @HexagonalArchitecture.Port(DRIVEN)
 fun interface DrinkPreparation {
+    // TODO: Assertions - How could I be sure that Order has recipe set at this stage?
     fun queueForPreparation(orderWithRecipe: Order)
 }
