@@ -7,5 +7,5 @@ import fr.sdecout.handson.ordering.domain.invoice.Invoice
 
 @HexagonalArchitecture.Port(DRIVING)
 interface CustomerOrderHandler {
-    fun orchestrateCallsToOtherServicesFor(order: Order): Either<OrderError, Invoice>
+    fun process(order: Order): Either<OrderError, Invoice>
 }
