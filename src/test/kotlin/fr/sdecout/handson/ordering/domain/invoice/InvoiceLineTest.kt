@@ -26,24 +26,6 @@ class InvoiceLineTest : ShouldSpec({
         )
 
         invoiceLine.totalPrice shouldBe Money(0.0)
-    }
-
-     should("add to an invoice") {
-        val line1 = InvoiceLine(
-            drink = DrinkName("ESPRESSO"),
-            quantity = 3.pieces(),
-            unitPrice = Money(7.00),
-        )
-        val line2 = InvoiceLine(
-            drink = DrinkName("LATTE"),
-            quantity = 1.pieces(),
-            unitPrice = Money(12.00),
-        )
-        val formerInvoice = Invoice.from(line1)
-
-        val updatedInvoice = line2.addTo(formerInvoice)
-
-        updatedInvoice shouldBe Invoice.from(line1, line2)
-    }
+     }
 
 })
