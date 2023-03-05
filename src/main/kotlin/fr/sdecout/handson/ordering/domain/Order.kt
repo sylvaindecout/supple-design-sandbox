@@ -13,5 +13,6 @@ data class Order(
 ) {
 
     fun withRecipe(recipe: Recipe) = this.copy(recipe = recipe)
+        .also { assert(it.recipe != null) }
 
 }
