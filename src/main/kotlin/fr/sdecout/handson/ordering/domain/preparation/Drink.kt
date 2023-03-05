@@ -8,10 +8,6 @@ import fr.sdecout.handson.ordering.domain.recipe.Recipe
 @DomainDrivenDesign.ValueObject
 data class Drink(
     val name: DrinkName,
-    val recipe: Recipe?,
+    val recipe: Recipe,
     val customer: Customer
-) {
-    init {
-        require(recipe != null)
-    }
-}
+)
