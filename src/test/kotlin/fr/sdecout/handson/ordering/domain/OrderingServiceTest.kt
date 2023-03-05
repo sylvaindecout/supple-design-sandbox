@@ -33,7 +33,7 @@ class OrderingServiceTest : ShouldSpec({
         val customer = Customer("Vincent")
         val orderedQuantity = 1.pieces()
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(LATTE.drink, orderedQuantity, customer))
+        val invoice = service.process(Order(LATTE.drink, orderedQuantity, customer))
 
         invoice shouldBeRight Invoice.from(InvoiceLine(LATTE.drink, orderedQuantity, LATTE.unitPrice))
         drinksSentToPreparation.shouldContainExactly(
@@ -50,7 +50,7 @@ class OrderingServiceTest : ShouldSpec({
         val customer = Customer("Vincent")
         val orderedQuantity = 3.pieces()
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(LATTE.drink, orderedQuantity, customer))
+        val invoice = service.process(Order(LATTE.drink, orderedQuantity, customer))
 
         invoice shouldBeRight Invoice.from(InvoiceLine(LATTE.drink, orderedQuantity, LATTE.unitPrice))
         drinksSentToPreparation.shouldContainExactly(
@@ -67,7 +67,7 @@ class OrderingServiceTest : ShouldSpec({
             stock = allIngredientsAreOutOfStock
         )
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(LATTE.drink, 1.pieces(), Customer("Vincent")))
+        val invoice = service.process(Order(LATTE.drink, 1.pieces(), Customer("Vincent")))
 
         invoice shouldBeLeft OrderError.UnavailableIngredient(LATTE.recipe.asMap().keys.first())
         drinksSentToPreparation.shouldBeEmpty()
@@ -80,7 +80,7 @@ class OrderingServiceTest : ShouldSpec({
             stock = stockIsNotAccessible
         )
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(LATTE.drink, 1.pieces(), Customer("Vincent")))
+        val invoice = service.process(Order(LATTE.drink, 1.pieces(), Customer("Vincent")))
 
         invoice shouldBeLeft OrderError.UnavailableIngredient(LATTE.recipe.asMap().keys.first())
         drinksSentToPreparation.shouldBeEmpty()
@@ -94,7 +94,7 @@ class OrderingServiceTest : ShouldSpec({
         )
         val drink = DrinkName("UNKNOWN")
 
-        val invoice = service.orchestrateCallsToOtherServicesFor(Order(drink, 1.pieces(), Customer("Vincent")))
+        val invoice = service.process(Order(drink, 1.pieces(), Customer("Vincent")))
 
         invoice shouldBeLeft OrderError.UnknownDrink(drink)
         drinksSentToPreparation.shouldBeEmpty()
