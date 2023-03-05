@@ -10,6 +10,7 @@ import fr.sdecout.handson.ordering.domain.stock.Stock
 @DomainDrivenDesign.Service
 class OrderingService(preparation: DrinkPreparation, menu: Menu, stock: Stock, invoices: Invoices) : CustomerOrderHandler {
 
+    // TODO: Conceptual contours - Does this design bend in the right places, considering the evolutions listed in the README file?
     private val specification by lazy {
         OrderingDsl(preparation::queueForPreparation, menu::find, stock::hasEnoughOf, invoices::add)
             .failOnUnavailableIngredient().withUnknownAsUnavailable()
