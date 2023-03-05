@@ -6,6 +6,7 @@ import fr.sdecout.handson.ordering.domain.TestMenuItem.Companion.testMenu
 import fr.sdecout.handson.ordering.domain.TestMenuItem.LATTE
 import fr.sdecout.handson.ordering.domain.invoice.Invoice
 import fr.sdecout.handson.ordering.domain.invoice.InvoiceLine
+import fr.sdecout.handson.ordering.domain.preparation.Drink
 import fr.sdecout.handson.ordering.domain.recipe.Quantity.Companion.pieces
 import fr.sdecout.handson.ordering.domain.stock.Stock
 import io.kotest.assertions.arrow.core.shouldBeLeft
@@ -14,7 +15,7 @@ import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainExactly
 
-private val drinksSentToPreparation = mutableListOf<Order>()
+private val drinksSentToPreparation = mutableListOf<Drink>()
 private val invoices = mutableListOf<Invoice>()
 
 private val allIngredientsAreInStock = Stock { _, _ -> true.right() }
@@ -42,7 +43,7 @@ class OrderingServiceTest : ShouldSpec({
         invoice shouldBeRight expectedInvoice
         invoices.shouldContainExactly(expectedInvoice)
         drinksSentToPreparation.shouldContainExactly(
-            Order(LATTE.drink, orderedQuantity, customer, LATTE.recipe)
+            Drink(LATTE.drink, LATTE.recipe, customer)
         )
     }
 
@@ -62,9 +63,9 @@ class OrderingServiceTest : ShouldSpec({
         invoice shouldBeRight expectedInvoice
         invoices.shouldContainExactly(expectedInvoice)
         drinksSentToPreparation.shouldContainExactly(
-            Order(LATTE.drink, orderedQuantity, customer, LATTE.recipe),
-            Order(LATTE.drink, orderedQuantity, customer, LATTE.recipe),
-            Order(LATTE.drink, orderedQuantity, customer, LATTE.recipe)
+            Drink(LATTE.drink, LATTE.recipe, customer),
+            Drink(LATTE.drink, LATTE.recipe, customer),
+            Drink(LATTE.drink, LATTE.recipe, customer)
         )
     }
 
