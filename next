@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#
+# This script is used during demonstrations.
+#
+# Usage:
+#      Start an interactive rebase.
+#      Mark all commits that need to be showed with the action "edit".
+#      Call ./next to move to the next commit (all changes are cleared).
+#
+
+git reset --hard
+git clean -df
+git rebase --continue
