@@ -1,10 +1,8 @@
 val jvmVersion = "17"
-val archunitVersion = "1.0.1"
 val arrowVersion = "1.2.1"
 val jodaMoneyVersion = "1.0.4"
-val junitVersion = "5.3.1"
-val mockitoKotlinVersion = "4.1.0"
-val striktVersion = "0.34.1"
+val kotestVersion = "5.8.0"
+val kotestArrowVersion = "1.4.0"
 val documentationAnnotationsVersion = "0.1.7"
 
 plugins {
@@ -31,17 +29,10 @@ dependencies {
 
     implementation("org.joda", "joda-money", jodaMoneyVersion)
 
-    testImplementation(kotlin("test-junit5"))
-    testImplementation("org.junit.jupiter", "junit-jupiter-api", junitVersion)
-    testImplementation("org.junit.jupiter", "junit-jupiter-params", junitVersion)
-    testRuntimeOnly("org.junit.jupiter", "junit-jupiter-engine", junitVersion)
-
-    testImplementation(platform("io.strikt:strikt-bom:$striktVersion"))
-    testImplementation("io.strikt", "strikt-arrow")
-
-    testImplementation("org.mockito.kotlin", "mockito-kotlin", mockitoKotlinVersion)
-    testImplementation("com.tngtech.archunit", "archunit-junit5-api", archunitVersion)
-    testImplementation("com.tngtech.archunit", "archunit-junit5-engine", archunitVersion)
+    testImplementation("io.kotest", "kotest-runner-junit5", kotestVersion)
+    testImplementation("io.kotest", "kotest-property", kotestVersion)
+    testImplementation("io.kotest", "kotest-assertions-core", kotestVersion)
+    testImplementation("io.kotest.extensions", "kotest-assertions-arrow", kotestArrowVersion)
 }
 
 tasks {
@@ -55,8 +46,7 @@ tasks {
             jvmTarget = jvmVersion
         }
     }
-    test {
+    withType<Test>().configureEach {
         useJUnitPlatform()
     }
 }
-
